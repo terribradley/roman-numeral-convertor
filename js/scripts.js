@@ -5,17 +5,22 @@ var newRomanArray = [];
 
 
 var romanGenerator = function(input) {
-  while (input > 0) {
-    debugger;
-    if (numberArray.includes(input)) {
-      newRomanArray.push(romanArray[numberArray.indexOf(input)]);
-      input -= input;
-    } else if(!numberArray.includes(input)) {
-      newRomanArray.push(romanArray[0]);
-      input = input - numberArray.indexOf(input);
-    }
+  for(var i = 0; i < numberArray.length; i++) {
+    while (input >= numberArray[i]) {
+      debugger;
+      newRomanArray.push(numberArray.indexOf(i));
+      input = input - numberArray[i];
+      if (numberArray.includes(input)) {
+        newRomanArray.push(romanArray[numberArray.indexOf(input)]);
+        input -= input;
+      } else if(!numberArray.includes(input)) {
+        newRomanArray.push(romanArray[0]);
+        input = input - numberArray.indexOf(input);
+      }
 
+    }
   }
+
 };
 
   // if (numberArray.includes(input)) {
